@@ -9,6 +9,7 @@ let App = () => {
 		<Header />
 		<Navbar />
 		<Content />
+		kek
 	</div>
 	);
 }
