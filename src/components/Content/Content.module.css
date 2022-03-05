@@ -1,0 +1,13 @@
+.content {
+	padding: 15px;
+	grid-area: content;
+	background-color: darksalmon;
+}
+.title {
+	text-align: center;
+	font-size: 70px;
+	color: cornflowerblue;
+	line-height: 60px;
+	margin-bottom: 30px;
+}
+
