@@ -1,0 +1,27 @@
+.logo img {
+	height: 50px;
+	margin-left: 15px;
+}
+
+.header {
+	align-items: center;
+	grid-area: header;
+	background-color: darksalmon;
+	display: flex;
+	justify-content: space-between;
+}
+
+.list {
+	display: flex;
+}
+.item a {
+	font-weight: 700;
+	color: cornflowerblue;
+	margin-right: 20px;
+	text-decoration: none;
+}
+
+.item a:hover {
+	color: aqua;
+}
+

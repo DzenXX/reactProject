@@ -1,0 +1,30 @@
+.navbar {
+	padding: 15px;
+}
+
+.navbar {
+	grid-area: navbar;
+	background-color: darksalmon;
+}
+
+.list {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.item a {
+	font-size: 20px;
+	font-weight: 700;
+	text-decoration: none;
+	color: cornflowerblue;
+}
+
+.item a:hover {
+	color: aqua;
+}
+
+.item:not(:last-child) {
+	margin-bottom: 20px;
+}
