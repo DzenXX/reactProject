@@ -135,6 +135,11 @@ body.lock {
 
 
 
+.content {
+	padding: 15px;
+	grid-area: content;
+	background-color: darksalmon;
+}
 
 
 

@@ -3,7 +3,8 @@ import s from './Profile.module.css'
 
 let Profile = () => {
 	return (
-		<div className={s.profile}>
+		<div>
+			<div className={s.title}>Your Profile</div>
 			<div className={s.header}>
 				<img className={s.image} src="https://sanstv.ru/dict/images/dic-ie/00741.jpg" alt="img" />
 				<div className={s.info}>
