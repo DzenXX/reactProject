@@ -13,23 +13,3 @@
 	color: cornflowerblue;
 	font-weight: 600;
 }
-
-.profile__posts {
-	padding: 20px 0;
-}
-
-.posts__subtitle {
-	color: cornflowerblue;
-	text-align: center;
-	font-size: 35px;
-	line-height: 35px;
-	margin-bottom: 15px;
-}
-.posts__item {
-	font-size: 20px;
-	color: cornflowerblue;
-}
-
-.posts__item:not(:last-child) {
-	margin-bottom: 15px;
-}

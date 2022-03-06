@@ -1,3 +1,4 @@
+import Posts from './Posts/Posts'
 import s from './Profile.module.css'
 
 let Profile = () => {
@@ -11,11 +12,7 @@ let Profile = () => {
 					<div className={s.education}>Education: BSUIR branch MRC</div>
 				</div>
 			</div>
-			<div className={`${s.profile__posts} ${s.posts}`}>
-				<div className={s.posts__subtitle}>Your posts</div>
-				<div className={s.posts__item}>First post ...</div>
-				<div className={s.posts__item}>Second post ...</div>
-			</div>
+			<Posts />
 		</div>
 	)
 }

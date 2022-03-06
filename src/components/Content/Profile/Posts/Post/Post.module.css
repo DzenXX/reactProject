@@ -1,0 +1,36 @@
+.item {
+	display: flex;
+	color: cornflowerblue;
+}
+.text {
+	position: relative;
+	transform: translate(0, -7px);
+	flex: 1 1 auto;
+	font-size: 20px;
+}
+.image { 
+	flex: 0 0 auto;
+	margin-right: 15px;
+	height: 50px;
+	width: 50px;
+	background: url("https://sun9-39.userapi.com/c850724/v850724856/1985cc/KTO5bZlkw0c.jpg") center / cover no-repeat;
+}
+
+.item:not(:last-child) {
+	margin-bottom: 30px;
+}
+.content {
+	flex: 1 1 auto;
+}
+
+.button {
+	display: inline-block;
+	height: 25px;
+	width: 100px;
+	background-color: cornflowerblue;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	line-height: 25px;
+	border-radius: 10px;
+}
