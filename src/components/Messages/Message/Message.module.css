@@ -1,0 +1,18 @@
+.message_my {
+	text-align: right;
+}
+
+.message_my .text {
+	background-color: aqua;
+}
+
+.text {
+	display: inline-block;
+	padding: 2px 4px;
+	border-radius: 10px;
+	background-color: antiquewhite;
+}
+
+.message {
+	margin-bottom: 2px;
+}

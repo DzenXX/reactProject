@@ -1,18 +1,11 @@
 import Posts from './Posts/Posts'
 import s from './Profile.module.css'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 let Profile = () => {
 	return (
 		<div>
-			<div className={s.title}>Your Profile</div>
-			<div className={s.header}>
-				<img className={s.image} src="https://sanstv.ru/dict/images/dic-ie/00741.jpg" alt="img" />
-				<div className={s.info}>
-					<div className={s.name}>Timofey Parfenenko</div>
-					<div className={s.age}>Age: 16</div>
-					<div className={s.education}>Education: BSUIR branch MRC</div>
-				</div>
-			</div>
+			<ProfileInfo />
 			<Posts />
 		</div>
 	)

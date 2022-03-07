@@ -1,0 +1,19 @@
+.user {
+	text-align: center;
+	transform: translate(-7.5px, 0px);
+}
+
+.user a {
+	text-decoration: none;
+	color: cornflowerblue;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.user:not(:last-child) {
+	margin-bottom: 15px;
+}
+
+.user.active a {
+	color:aqua;
+}

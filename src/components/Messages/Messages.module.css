@@ -1,3 +1,22 @@
 .wrapper {
-	font-size: 50px;
+	display: flex;
+	justify-content: space-between;
+	min-height: 100%;
 }
+.chat {
+	flex: 0 0 80%;
+}
+
+.users {
+ flex: 1 1 20%;
+ min-height: 100%;
+ border-right: 1px solid ghostwhite;
+}
+
+.content {
+	width: 50%;
+	margin: 0 auto;
+}
+
+
+
