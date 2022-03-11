@@ -17,8 +17,8 @@ let App = (props) => {
 			<Navbar />
 			<div className='content'>
 				<Routes>
-					<Route path="/messages/*" element={<Messages />} />
-					<Route path="/profile/*" element={<Profile />} />
+					<Route path="/messages/*" element={<Messages textData = {props.textData} userData = {props.userData} />} />
+					<Route path="/profile/*" element={<Profile postData = {props.postData} />} />
 					<Route path="/news/*" element={<News />} />
 					<Route path="/music/*" element={<Music />} />
 					<Route path="/settings/*" element={<Settings />} />
