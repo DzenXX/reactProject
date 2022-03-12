@@ -5,10 +5,9 @@ import Message from './Message/Message'
 
 
 let Messages = (props) => {
-
-	let textElements = props.textData.map(t => (<Message text={t.text} />))
-	let userElements = props.userData.map(u => (<User name={u.name} id={u.id} />))
-
+	let textElements = props.state.textData.map(t => (<Message state = {t} />))
+	let userElements = props.state.userData.map(u => (<User name={u.name} id={u.id} />))
+	debugger;
 	return (
 		<div className={s.wrapper}>
 			<ul className={s.users}>

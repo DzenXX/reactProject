@@ -1,8 +1,5 @@
-.message_my {
-	text-align: right;
-}
 
-.message_my .text {
+.message_your .text {
 	background-color: aqua;
 }
 
@@ -14,5 +11,25 @@
 }
 
 .message {
-	margin-bottom: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	margin-bottom: 3px;
+}
+
+.message_your {
+	justify-content: right;
+}
+
+.avatar {
+	width: 35px;
+	min-height: 35px;
+	border-radius: 50%;
+	background: url("https://persons-info.com/userfiles/image/persons/70000-80000/75000-76000/75814/GERMANIK_Neron_IUlii_TSezar_1.jpg") center / cover no-repeat;
+	margin-right: 10px;
+}
+
+.avatar_your {
+	margin: 0 0 0 10px;
+	background: url("https://sanstv.ru/dict/images/dic-ie/00741.jpg") center / cover no-repeat;
 }

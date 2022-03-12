@@ -10,15 +10,16 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 
 let App = (props) => {
+	debugger;
 	return (
 		<BrowserRouter>
 		<div className='app'>
 			<Header />
-			<Navbar />
+			<Navbar state = {props.state.NavbarState} />
 			<div className='content'>
 				<Routes>
-					<Route path="/messages/*" element={<Messages textData = {props.textData} userData = {props.userData} />} />
-					<Route path="/profile/*" element={<Profile postData = {props.postData} />} />
+					<Route path="/messages/*" element={<Messages state = {props.state.MessageState} />} />
+					<Route path="/profile/*" element={<Profile state = {props.state.ProfileState} />} />
 					<Route path="/news/*" element={<News />} />
 					<Route path="/music/*" element={<Music />} />
 					<Route path="/settings/*" element={<Settings />} />

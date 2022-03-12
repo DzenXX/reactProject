@@ -1,4 +1,5 @@
 .user {
+	position: relative;
 	text-align: center;
 	transform: translate(-7.5px, 0px);
 }
@@ -17,3 +18,15 @@
 .user.active a {
 	color:aqua;
 }
+
+.image {
+	left: 0;
+	top: 0;
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: brown;
+	transform: translate(50%, -16%);
+}
+

@@ -1,0 +1,15 @@
+.wrapper {
+	margin-top: 40px;
+
+}
+.friends {
+	display: flex;
+	flex-wrap: wrap;
+}
+.title {
+	font-size: 25px;
+	text-align: center;
+	color: cornflowerblue;
+	font-weight: 600;
+	margin-bottom: 15px;
+}
