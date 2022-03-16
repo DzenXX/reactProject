@@ -1,6 +1,7 @@
 import s from './Messages.module.css'
 import User from './User/User'
 import Message from './Message/Message'
+import Input from "./Input/Input";
 
 
 
@@ -16,9 +17,7 @@ let Messages = (props) => {
 			<div className={s.chat}>
 				<div className={s.content}>
 					{textElements}
-					{/* 	<div className={s.message}><span className={s.text}>Hello</span></div>
-					<div className={s.message + ' ' + s.message_my}><span className={s.text}>Hi, what's up?</span></div>
-					<div className={s.message}><span className={s.text}>Everithing is fine</span></div> */}
+					<Input />
 				</div>
 			</div>
 		</div>

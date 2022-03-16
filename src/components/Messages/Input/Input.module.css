@@ -1,0 +1,30 @@
+
+
+
+
+
+.wrapper {
+    margin-top: 50px;
+    justify-content: right;
+    display: flex;
+
+}
+.input {
+    background-color: cornsilk;
+    resize: vertical;
+    width: 65%;
+    min-height: 30px;
+    border-radius: 10px 0 0 10px;
+    overflow: hidden;
+    padding: 3px;
+    box-sizing: content-box;
+}
+
+.button {
+    background-color: cornsilk;
+    line-height: 36px;
+    text-align: center;
+    width: 100px;
+    height: 36px;
+    border-radius: 0 30px 30px 0;
+}

@@ -19,7 +19,7 @@ let App = (props) => {
 			<div className='content'>
 				<Routes>
 					<Route path="/messages/*" element={<Messages state = {props.state.MessageState} />} />
-					<Route path="/profile/*" element={<Profile state = {props.state.ProfileState} />} />
+					<Route path="/profile/*" element={<Profile state = {props.state.ProfileState} AddPost = { props.AddPost } />} />
 					<Route path="/news/*" element={<News />} />
 					<Route path="/music/*" element={<Music />} />
 					<Route path="/settings/*" element={<Settings />} />

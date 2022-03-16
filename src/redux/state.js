@@ -1,3 +1,4 @@
+import {rerenderEntireTree} from "../render";
 
 let state = {
 	NavbarState: {
@@ -32,5 +33,13 @@ let state = {
 		]
 	}
 }
+
+export let AddPost = (postMessage) => {
+ 	let newPost = { id: '5', count: '0', text:  postMessage };
+	state.ProfileState.postData.push(newPost)
+	rerenderEntireTree(state)
+	debugger;
+}
+
 
 export default state

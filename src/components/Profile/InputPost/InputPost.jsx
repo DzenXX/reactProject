@@ -1,18 +1,20 @@
 import React from 'react';
-import s from './Input.module.css'
+import s from './InputPost.module.css'
 
-let Input = () => {
-        let MessageText = React.useRef()
-        let NewMessage = (props) => {
-        alert(`Your message '${MessageText.current.value}' has been send! `)
+let InputPost = (props) => {
+        let PostText = React.useRef()
+        let AddPost = () => {
+        let text = PostText.current.value;
+        props.AddPost(text);
+        PostText.current.value = ''
         }
         return (
             <div className={s.wrapper}>
-                <textarea ref={ MessageText } placeholder={"Input message"} className={s.input}></textarea>
-                <button onClick={ NewMessage } className={s.button}>Send message</button>
+                <textarea ref={ PostText } placeholder={"Input content for new post"} className={s.input}></textarea>
+                <button onClick={ AddPost } className={s.button}>Create post</button>
             </div>
         );
 }
 
-export default Input;
+export default InputPost;
 
