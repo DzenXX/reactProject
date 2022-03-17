@@ -8,7 +8,7 @@ let Profile = (props) => {
 	return (
 		<div>
 			<ProfileInfo />
-			<InputPost AddPost = { props.AddPost } />
+			<InputPost newPostText={props.state.newPostText} AddPost={props.AddPost} UpdateNewPostText={props.UpdateNewPostText}/>
 			<Posts state = {props.state} />
 		</div>
 	)

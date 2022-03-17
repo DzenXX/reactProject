@@ -17,7 +17,7 @@ let Messages = (props) => {
 			<div className={s.chat}>
 				<div className={s.content}>
 					{textElements}
-					<Input />
+					<Input AddMessage = { props.AddMessage } />
 				</div>
 			</div>
 		</div>

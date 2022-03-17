@@ -2,16 +2,19 @@ import React from 'react';
 import s from './InputPost.module.css'
 
 let InputPost = (props) => {
-        let PostText = React.useRef()
+        let postText = React.useRef()
+        let OnPostChange = () => {
+                let newText = postText.current.value;
+                props.UpdateNewPostText(newText)
+        }
         let AddPost = () => {
-        let text = PostText.current.value;
-        props.AddPost(text);
-        PostText.current.value = ''
+        props.AddPost();
+        postText.current.value = '';
         }
         return (
             <div className={s.wrapper}>
-                <textarea ref={ PostText } placeholder={"Input content for new post"} className={s.input}></textarea>
-                <button onClick={ AddPost } className={s.button}>Create post</button>
+                <textarea onChange={OnPostChange} ref={postText} placeholder={"Input content for new post"} className={s.input} value={props.newPostText}></textarea>
+                <button onClick={AddPost} className={s.button}>Create post</button>
             </div>
         );
 }

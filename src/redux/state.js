@@ -26,6 +26,7 @@ let state = {
 		]
 	},
 	ProfileState: {
+		newPostText: '',
 		postData: [
 			{ id: '1', count: '15', text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione eveniet accusamus, soluta praesentium recusandae maiores explicabo mollitia a. Odit magni culpa, ratione natus error eligendi, vero suscipit beatae et consequatur sapiente atque doloribus doloremque repellendus quia sint! Commodi ab unde suscipit accusamus, quae in nobis modi possimus tempora reiciendis quisquam.' },
 			{ id: '2', count: '4', text: "Hi, what's up?" },
@@ -34,12 +35,23 @@ let state = {
 	}
 }
 
-export let AddPost = (postMessage) => {
- 	let newPost = { id: '5', count: '0', text:  postMessage };
-	state.ProfileState.postData.push(newPost)
-	rerenderEntireTree(state)
+window.state = state
+
+export let AddPost = () => {
+ 	let newPost = { id: '5', count: '0', text:  state.ProfileState.newPostText };
+	state.ProfileState.postData.push(newPost);
+	state.ProfileState.newPostText = '';
+	rerenderEntireTree(state);
+}
+export let AddMessage = (text) => {
+	let newMessage = { yourMessage: true, id: 'ann', text: text };
+	state.MessageState.textData.push(newMessage);
+	rerenderEntireTree(state);
 	debugger;
 }
-
+export let UpdateNewPostText = (newText) => {
+	state.ProfileState.newPostText = newText;
+	rerenderEntireTree(state);
+}
 
 export default state
