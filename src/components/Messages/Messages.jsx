@@ -6,8 +6,8 @@ import Input from "./Input/Input";
 
 
 let Messages = (props) => {
-	let textElements = props.state.textData.map(t => (<Message state = {t} />))
-	let userElements = props.state.userData.map(u => (<User name={u.name} id={u.id} />))
+	let textElements = props.store.getTextData().map(t => (<Message store = {props.store} state = {t} />))
+	let userElements = props.store.getUserData().map(u => (<User name={u.name} id={u.id} />))
 	debugger;
 	return (
 		<div className={s.wrapper}>
@@ -17,7 +17,7 @@ let Messages = (props) => {
 			<div className={s.chat}>
 				<div className={s.content}>
 					{textElements}
-					<Input UpdateNewMessageText={props.UpdateNewMessageText} newMessageText={props.state.newMessageText} AddMessage = { props.AddMessage } />
+					<Input store = {props.store} />
 				</div>
 			</div>
 		</div>

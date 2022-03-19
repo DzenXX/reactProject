@@ -18,8 +18,8 @@ let App = (props) => {
 			<Navbar state = {props.state.NavbarState} />
 			<div className='content'>
 				<Routes>
-					<Route path="/messages/*" element={<Messages UpdateNewMessageText={props.UpdateNewMessageText} state={props.state.MessageState} AddMessage={ props.AddMessage } />} />
-					<Route path="/profile/*" element={<Profile state = {props.state.ProfileState} AddPost = { props.AddPost } UpdateNewPostText={props.UpdateNewPostText} />} />
+					<Route path="/messages/*" element={<Messages store = {props.store} state={props.state.MessageState} />} />
+					<Route path="/profile/*" element={<Profile state = {props.state.ProfileState} store = {props.store} getPostData = {props.getPostData} dispatch={props.dispatch} />} />
 					<Route path="/news/*" element={<News />} />
 					<Route path="/music/*" element={<Music />} />
 					<Route path="/settings/*" element={<Settings />} />

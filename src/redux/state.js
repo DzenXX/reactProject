@@ -1,5 +1,8 @@
-let rerenderEntireTree
-export let store = {
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+
+let _callSubscriber
+let store = {
 	_state: {
 		NavbarState: {
 			FriendsData: [
@@ -43,47 +46,74 @@ export let store = {
 			]
 		}
 	},
-	GetState() {
+	getState() {
 		return this._state
 	},
-	SetState(value) {
-		this._state = value
+	getPostData() {
+		return this._state.ProfileState.postData
 	},
-	SetNewPostText(value) {
+	setNewPostText(value) {
 		this._state.ProfileState.newPostText = value;
 	},
-	PushNewPost(value) {
+	setNewMessageText(value) {
+		this._state.MessageState.newMessageText = value;
+	},
+	pushNewPost(value) {
 		this._state.ProfileState.postData.push(value)
 	},
-	PushNewMessage(value) {
+	pushNewMessage(value) {
 		this._state.MessageState.textData.push(value)
+	},
+	getTextData() {
+		return this._state.MessageState.textData
+	},
+	getUserData() {
+		return this._state.MessageState.userData
+	},
+	getNewPostText() {
+		return this._state.ProfileState.newPostText
+	},
+	getNewMessageText() {
+		return this._state.MessageState.newMessageText
 	},
 
 	AddPost(){
-		let newPost = {id: '5', count: '0', text: state.ProfileState.newPostText};
-		this.PushNewPost(newPost);
-		this.SetNewPostText('');
+		let newPost = {id: '5', count: '0', text: this.getNewPostText()};
+		this.pushNewPost(newPost);
+		this.setNewPostText('');
 		// state.ProfileState.newPostText = '';
-		rerenderEntireTree(this._state);
+		_callSubscriber(this._state);
 	},
 	AddMessage(text) {
 		let newMessage = {yourMessage: true, id: 'ann', text: text};
-		this.PushNewMessage()
+		this.pushNewMessage(newMessage)
+		this.setNewMessageText('')
 		// state.MessageState.textData.push(newMessage);
-		rerenderEntireTree(state);
+		_callSubscriber(this._state);
 		debugger;
 	},
-	UpdateNewPostText(newText) {
-		state.ProfileState.newPostText = newText;
-		rerenderEntireTree(state);
+	updateNewPostText(newText) {
+		this._state.ProfileState.newPostText = newText;
+		_callSubscriber(this._state);
 	},
-	UpdateNewMessageText(newText) {
-		state.MessageState.newMessageText = newText;
-		rerenderEntireTree(state)
+	updateNewMessageText(newText) {
+		// state.MessageState.newMessageText = newText;
+		this.setNewMessageText(newText)
+		_callSubscriber(this._state)
 	},
 	subscribe(observer) {
-		rerenderEntireTree = observer;
+		_callSubscriber = observer;
 	},
+	dispatch(action) {
+		if (action.type === ADD_POST) {
+			this.AddPost()
+		} else if (action.type === UPDATE_NEW_POST_TEXT) {
+			this.updateNewPostText(action.text)
+		}
+	}
 }
+export const addPostActionCreator = () => ({type: 'ADD-POST'})
+export const updateNewPostTextActionCreator = (newText) => ({ type: 'UPDATE-NEW-POST-TEXT', text: newText })
+
 
 export default store

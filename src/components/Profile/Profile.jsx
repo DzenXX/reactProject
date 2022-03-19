@@ -8,8 +8,8 @@ let Profile = (props) => {
 	return (
 		<div>
 			<ProfileInfo />
-			<InputPost newPostText={props.state.newPostText} AddPost={props.AddPost} UpdateNewPostText={props.UpdateNewPostText}/>
-			<Posts state = {props.state} />
+			<InputPost store = {props.store} dispatch = {props.dispatch} />
+			<Posts store = {props.store} state = {props.state} getPostData = {props.getPostData} />
 		</div>
 	)
 }

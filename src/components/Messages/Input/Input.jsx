@@ -5,15 +5,16 @@ let Input = (props) => {
         let MessageText = React.useRef()
         let OnMessageChange = () => {
               let newText = MessageText.current.value;
-              props.UpdateNewMessageText(newText);
+              props.store.updateNewMessageText(newText);
+              debugger;
         }
         let AddMessage = () => {
         let text = MessageText.current.value;
-        props.AddMessage(text)
+        props.store.AddMessage(text)
         }
         return (
             <div className={s.wrapper}>
-                <textarea onChange={OnMessageChange} ref={ MessageText } placeholder={"Input message"} className={s.input} value={props.newMessageText}></textarea>
+                <textarea onChange={OnMessageChange} ref={ MessageText } placeholder={"Input message"} className={s.input} value={props.store.getNewMessageText()}></textarea>
                 <button onClick={ AddMessage } className={s.button}>Send message</button>
             </div>
         );
