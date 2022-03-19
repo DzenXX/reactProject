@@ -17,7 +17,7 @@ let Messages = (props) => {
 			<div className={s.chat}>
 				<div className={s.content}>
 					{textElements}
-					<Input AddMessage = { props.AddMessage } />
+					<Input UpdateNewMessageText={props.UpdateNewMessageText} newMessageText={props.state.newMessageText} AddMessage = { props.AddMessage } />
 				</div>
 			</div>
 		</div>
