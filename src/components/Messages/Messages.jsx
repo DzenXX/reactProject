@@ -17,7 +17,7 @@ let Messages = (props) => {
 			<div className={s.chat}>
 				<div className={s.content}>
 					{textElements}
-					<Input store = {props.store} />
+					<Input store = {props.store} dispatch={props.dispatch} />
 				</div>
 			</div>
 		</div>

@@ -1,20 +1,20 @@
 import React from 'react';
 import s from './Input.module.css'
+import {addMessageActionCreator, addPostActionCreator, updateNewMessageTextActionCreator} from "../../../redux/state";
 
 let Input = (props) => {
-        let MessageText = React.useRef()
-        let OnMessageChange = () => {
-              let newText = MessageText.current.value;
-              props.store.updateNewMessageText(newText);
-              debugger;
+        let OnMessageChange = (e) => {
+            let newText = e.target.value
+            props.store.dispatch(updateNewMessageTextActionCreator(newText));
+            debugger;
         }
         let AddMessage = () => {
-        let text = MessageText.current.value;
-        props.store.AddMessage(text)
+        // let text = MessageText.current.value;
+        props.store.dispatch(addMessageActionCreator())
         }
         return (
             <div className={s.wrapper}>
-                <textarea onChange={OnMessageChange} ref={ MessageText } placeholder={"Input message"} className={s.input} value={props.store.getNewMessageText()}></textarea>
+                <textarea onChange={OnMessageChange} placeholder={"Input message"} className={s.input} value={props.store.getNewMessageText()}></textarea>
                 <button onClick={ AddMessage } className={s.button}>Send message</button>
             </div>
         );

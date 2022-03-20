@@ -18,7 +18,7 @@ let App = (props) => {
 			<Navbar state = {props.state.NavbarState} />
 			<div className='content'>
 				<Routes>
-					<Route path="/messages/*" element={<Messages store = {props.store} state={props.state.MessageState} />} />
+					<Route path="/messages/*" element={<Messages store = {props.store} state={props.state.MessageState} dispatch={props.dispatch} />} />
 					<Route path="/profile/*" element={<Profile state = {props.state.ProfileState} store = {props.store} getPostData = {props.getPostData} dispatch={props.dispatch} />} />
 					<Route path="/news/*" element={<News />} />
 					<Route path="/music/*" element={<Music />} />
