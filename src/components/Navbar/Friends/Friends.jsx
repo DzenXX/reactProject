@@ -3,7 +3,7 @@ import s from './Friends.module.css'
 
 let Friends = (props) => {
 	debugger;
-	let FriendsItems = props.state.map( f => (<Friend state = {f} />))
+	let FriendsItems = props.store.getState().sidebarPage.FriendsData.map( f => (<Friend state = {f} />))
 	return (
 		<div className={s.wrapper}>
 			<div className={s.title}>

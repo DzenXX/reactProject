@@ -9,7 +9,7 @@ let Profile = (props) => {
 		<div>
 			<ProfileInfo />
 			<InputPost store = {props.store} dispatch = {props.dispatch} />
-			<Posts store = {props.store} state = {props.state} getPostData = {props.getPostData} />
+			<Posts store = {props.store} state = {props.state} />
 		</div>
 	)
 }

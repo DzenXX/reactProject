@@ -5,20 +5,17 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 
 
 let InputPost = (props) => {
-        let postText = React.useRef()
-        let OnPostChange = () => {
-                let newText = postText.current.value;
-                let action = updateNewPostTextActionCreator(newText);
+        let OnPostChange = (e) => {
+                let action = updateNewPostTextActionCreator(e.target.value);
                 props.dispatch(action)
                 debugger;
         }
         let AddPost = () => {
         props.dispatch(addPostActionCreator());
-        postText.current.value = '';
         }
         return (
             <div className={s.wrapper}>
-                <textarea onChange={OnPostChange} ref={postText} placeholder={"Input content for new post"} className={s.input} value={props.store.getNewPostText()}></textarea>
+                <textarea onChange={OnPostChange} placeholder={"Input content for new post"} className={s.input} value={props.store.getState().profilePage.newPostText}></textarea>
                 <button onClick={AddPost} className={s.button}>Create post</button>
             </div>
         );

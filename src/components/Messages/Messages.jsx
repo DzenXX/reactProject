@@ -6,8 +6,8 @@ import Input from "./Input/Input";
 
 
 let Messages = (props) => {
-	let textElements = props.store.getTextData().map(t => (<Message store = {props.store} state = {t} />))
-	let userElements = props.store.getUserData().map(u => (<User name={u.name} id={u.id} />))
+	let textElements = props.store.getState().messagePage.textData.map(t => (<Message store = {props.store} state = {t} />))
+	let userElements = props.store.getState().messagePage.userData.map(u => (<User name={u.name} id={u.id} />))
 	debugger;
 	return (
 		<div className={s.wrapper}>

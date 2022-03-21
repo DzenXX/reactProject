@@ -6,7 +6,7 @@ const ADD_MESSAGE = 'ADD-MESSAGE'
 let _callSubscriber
 let store = {
 	_state: {
-		NavbarState: {
+		sidebarPage: {
 			FriendsData: [
 				{name: 'Anya', id: 'ann'},
 				{name: 'Egor', id: 'egor'},
@@ -16,7 +16,7 @@ let store = {
 				{name: 'Ilya', id: 'ilya '}
 			]
 		},
-		MessageState: {
+		messagePage: {
 			newMessageText: '',
 			userData: [
 				{name: 'Anyaaaa', id: 'ann'},
@@ -31,7 +31,7 @@ let store = {
 				{yourMessage: false, id: 'ann', text: 'Everithing is fine'}
 			]
 		},
-		ProfileState: {
+		profilePage: {
 			newPostText: '',
 			postData: [
 				{
@@ -51,70 +51,28 @@ let store = {
 	getState() {
 		return this._state
 	},
-	getPostData() {
-		return this._state.ProfileState.postData
-	},
-	setNewPostText(value) {
-		this._state.ProfileState.newPostText = value;
-	},
-	setNewMessageText(value) {
-		this._state.MessageState.newMessageText = value;
-	},
-	pushNewPost(value) {
-		this._state.ProfileState.postData.push(value)
-	},
-	pushNewMessage(value) {
-		this._state.MessageState.textData.push(value)
-	},
-	getTextData() {
-		return this._state.MessageState.textData
-	},
-	getUserData() {
-		return this._state.MessageState.userData
-	},
-	getNewPostText() {
-		return this._state.ProfileState.newPostText
-	},
-	getNewMessageText() {
-		return this._state.MessageState.newMessageText
-	},
-
-	AddPost(){
-		let newPost = {id: '5', count: '0', text: this.getNewPostText()};
-		this.pushNewPost(newPost);
-		this.setNewPostText('');
-		// state.ProfileState.newPostText = '';
-		_callSubscriber(this._state);
-	},
-	AddMessage() {
-		let newMessage = {yourMessage: true, id: 'ann', text: this.getNewMessageText()};
-		this.pushNewMessage(newMessage)
-		this.setNewMessageText('')
-		// state.MessageState.textData.push(newMessage);
-		_callSubscriber(this._state);
-		debugger;
-	},
-	updateNewPostText(newText) {
-		this._state.ProfileState.newPostText = newText;
-		_callSubscriber(this._state);
-	},
-	updateNewMessageText(newText) {
-		// state.MessageState.newMessageText = newText;
-		this.setNewMessageText(newText)
-		_callSubscriber(this._state)
-	},
 	subscribe(observer) {
 		_callSubscriber = observer;
 	},
 	dispatch(action) {
 		if (action.type === ADD_POST) {
-			this.AddPost()
+			let postText = this._state.profilePage.newPostText
+			let newPost = {id: '5', count: '0', text: postText};
+			this._state.profilePage.postData.push(newPost)
+			this._state.profilePage.newPostText = '';
+			_callSubscriber(this._state);
 		} else if (action.type === UPDATE_NEW_POST_TEXT) {
-			this.updateNewPostText(action.text)
+			this._state.profilePage.newPostText = action.text;
+			_callSubscriber(this._state);
 		} else if (action.type === ADD_MESSAGE) {
-			this.AddMessage()
+			let messageText = this._state.messagePage.newMessageText;
+			let newMessage = {yourMessage: true, id: 'ann', text: messageText};
+			this._state.messagePage.textData.push(newMessage)
+			this._state.messagePage.newMessageText = '';
+			_callSubscriber(this._state);
 		} else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-			this.updateNewMessageText(action.text)
+			this._state.messagePage.newMessageText = action.text;
+			_callSubscriber(this._state)
 		}
 	}
 }

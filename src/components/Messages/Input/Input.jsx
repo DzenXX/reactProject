@@ -14,7 +14,7 @@ let Input = (props) => {
         }
         return (
             <div className={s.wrapper}>
-                <textarea onChange={OnMessageChange} placeholder={"Input message"} className={s.input} value={props.store.getNewMessageText()}></textarea>
+                <textarea onChange={OnMessageChange} placeholder={"Input message"} className={s.input} value={props.store.getState().messagePage.newMessageText}></textarea>
                 <button onClick={ AddMessage } className={s.button}>Send message</button>
             </div>
         );

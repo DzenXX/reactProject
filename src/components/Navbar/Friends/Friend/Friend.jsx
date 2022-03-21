@@ -1,10 +1,12 @@
 import s from './Friend.module.css'
+import {NavLink} from "react-router-dom";
 
 let Friend = (props) => {
+	debugger;
 	return (
 		<div className={s.wrapper}>
-			<a href='#' className={s.image} style={{ }} ></a>
-			<a href='#' className={s.name}>{props.state.name}</a>
+			<NavLink to={"/messages/" + props.state.id } className={s.image}></NavLink>
+			<NavLink to={"/messages/" + props.state.id } className={s.name}>{props.state.name}</NavLink>
 		</div>
 	)
 }

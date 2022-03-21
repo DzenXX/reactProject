@@ -15,11 +15,11 @@ let App = (props) => {
 		<BrowserRouter>
 		<div className='app'>
 			<Header />
-			<Navbar state = {props.state.NavbarState} />
+			<Navbar state = {props.state.sidebarPage} store={props.store} />
 			<div className='content'>
 				<Routes>
-					<Route path="/messages/*" element={<Messages store = {props.store} state={props.state.MessageState} dispatch={props.dispatch} />} />
-					<Route path="/profile/*" element={<Profile state = {props.state.ProfileState} store = {props.store} getPostData = {props.getPostData} dispatch={props.dispatch} />} />
+					<Route path="/messages/*" element={<Messages store = {props.store} state={props.state.messagePage} dispatch={props.dispatch} />} />
+					<Route path="/profile/*" element={<Profile state = {props.state.profilePage} store = {props.store}  dispatch={props.dispatch} />} />
 					<Route path="/news/*" element={<News />} />
 					<Route path="/music/*" element={<Music />} />
 					<Route path="/settings/*" element={<Settings />} />
