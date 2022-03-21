@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Input.module.css'
-import {addMessageActionCreator, addPostActionCreator, updateNewMessageTextActionCreator} from "../../../redux/state";
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../../redux/message-reducer";
 
 let Input = (props) => {
         let OnMessageChange = (e) => {
