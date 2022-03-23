@@ -2,8 +2,9 @@ import profileReducer from "./profile-reducer";
 import messageReducer from "./message-reducer";
 
 
-let _callSubscriber
+
 let store = {
+	_callSubscriber() {},
 	_state: {
 		sidebarPage: {
 			FriendsData: [
@@ -51,12 +52,12 @@ let store = {
 		return this._state
 	},
 	subscribe(observer) {
-		_callSubscriber = observer;
+		this._callSubscriber = observer;
 	},
 	dispatch(action) {
 		profileReducer(this._state.profilePage, action)
 		messageReducer(this._state.messagePage, action)
-		_callSubscriber(this._state)
+		this._callSubscriber(this._state)
 	}
 }
 

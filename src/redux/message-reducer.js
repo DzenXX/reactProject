@@ -1,8 +1,23 @@
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 const ADD_MESSAGE = 'ADD-MESSAGE'
 
+let initialState = {
+    newMessageText: '',
+    userData: [
+        {name: 'Anyaaaa', id: 'ann'},
+        {name: 'Egor', id: 'egor'},
+        {name: 'Sasha', id: 'alexander'},
+        {name: 'Vlad', id: 'vladislav'},
+        {name: 'Yarik', id: 'yaroslav'}
+    ],
+    textData: [
+        {yourMessage: false, id: 'ann', text: 'Hello'},
+        {yourMessage: true, id: 'ann', text: "Hi, what's up?"},
+        {yourMessage: false, id: 'ann', text: 'Everithing is fine'}
+    ]
+}
 
-const messageReducer = (state, action) => {
+const messageReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_TEXT:
             state.newMessageText = action.text;
