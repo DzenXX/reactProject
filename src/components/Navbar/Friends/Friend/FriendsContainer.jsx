@@ -1,7 +1,8 @@
 import Friends from "../Friends";
 import StoreContext from "../../../../StoreContext";
+import {connect} from "react-redux";
 
-let FriendsContainer = () => {
+let FriendsContainerr = () => {
     debugger;
     return (
         <StoreContext.Consumer>
@@ -14,5 +15,14 @@ let FriendsContainer = () => {
         </StoreContext.Consumer>
     )
 }
+
+let mapStateToProps = (state) => {
+    return {
+        friendsData: state.sidebarPage.FriendsData
+    }
+}
+
+
+let FriendsContainer = connect(mapStateToProps)(Friends)
 
 export default FriendsContainer;

@@ -12,7 +12,6 @@ import MessagesContainer from "./components/Messages/MessagesContainer";
 let App = (props) => {
 	debugger;
 	return (
-		<BrowserRouter>
 		<div className='app'>
 			<Header />
 			<Navbar />
@@ -26,7 +25,6 @@ let App = (props) => {
 				</Routes>
 			</div>
 		</div>
-		</BrowserRouter>
 	);
 }
 
