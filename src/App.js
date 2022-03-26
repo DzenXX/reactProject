@@ -3,11 +3,11 @@ import './App.css';
 import Profile from './components/Profile/Profile';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Messages from './components/Messages/Messages'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import MessagesContainer from "./components/Messages/MessagesContainer";
 
 let App = (props) => {
 	debugger;
@@ -15,11 +15,11 @@ let App = (props) => {
 		<BrowserRouter>
 		<div className='app'>
 			<Header />
-			<Navbar state = {props.state.sidebarPage} store={props.store} />
+			<Navbar />
 			<div className='content'>
 				<Routes>
-					<Route path="/messages/*" element={<Messages store = {props.store} state={props.state.messagePage} dispatch={props.dispatch} />} />
-					<Route path="/profile/*" element={<Profile state = {props.state.profilePage} store = {props.store}  dispatch={props.dispatch} />} />
+					<Route path="/messages/*" element={<MessagesContainer />} />
+					<Route path="/profile/*" element={<Profile />} />
 					<Route path="/news/*" element={<News />} />
 					<Route path="/music/*" element={<Music />} />
 					<Route path="/settings/*" element={<Settings />} />

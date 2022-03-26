@@ -1,5 +1,5 @@
 import profileReducer from "./profile-reducer";
-import messageReducer from "./message-reducer";
+import messagesReducer from "./messages-reducer";
 
 
 
@@ -16,7 +16,7 @@ let store = {
 				{name: 'Ilya', id: 'ilya '}
 			]
 		},
-		messagePage: {
+		messagesPage: {
 			newMessageText: '',
 			userData: [
 				{name: 'Anyaaaa', id: 'ann'},
@@ -56,7 +56,7 @@ let store = {
 	},
 	dispatch(action) {
 		profileReducer(this._state.profilePage, action)
-		messageReducer(this._state.messagePage, action)
+		messagesReducer(this._state.messagesPage, action)
 		this._callSubscriber(this._state)
 	}
 }

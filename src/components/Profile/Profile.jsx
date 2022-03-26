@@ -1,17 +1,14 @@
-import Posts from './Posts/Posts'
-import s from './Profile.module.css'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
-import InputPost from "./InputPost/InputPost";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-let Profile = (props) => {
+let Profile = () => {
 	debugger;
 	return (
 		<div>
 			<ProfileInfo />
-			<InputPost store = {props.store} dispatch = {props.dispatch} />
-			<Posts store = {props.store} state = {props.state} />
+			<MyPostsContainer />
 		</div>
 	)
 }
 
-export default Profile 
+export default Profile
