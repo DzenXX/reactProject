@@ -2,7 +2,6 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 import MyPosts from "./MyPosts";
 import StoreContext from "../../../StoreContext";
 import {connect} from "react-redux";
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../../redux/messages-reducer";
 
 let MyPostsContainerr = () => {
 
