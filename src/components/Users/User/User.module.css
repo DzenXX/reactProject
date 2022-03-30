@@ -1,0 +1,18 @@
+.img {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background: url("https://persons-info.com/userfiles/image/persons/70000-80000/75000-76000/75814/GERMANIK_Neron_IUlii_TSezar_1.jpg") center / cover no-repeat;
+    margin-right: 10px;
+}
+
+.content {
+    display: flex;
+}
+.content__info {
+    background-color: cornsilk;
+    display: flex;
+    width: 700px;
+    justify-content: space-between;
+    align-items: center;
+}

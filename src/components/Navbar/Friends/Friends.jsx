@@ -2,7 +2,6 @@ import Friend from './Friend/Friend';
 import s from './Friends.module.css'
 
 let Friends = (props) => {
-	debugger;
 	let FriendsItems = props.friendsData.map( f => (<Friend state = {f} />))
 	return (
 		<div className={s.wrapper}>

@@ -12,6 +12,7 @@ let Navbar = (props) => {
 				<li className={s.item}><NavLink className = { el => el.isActive ? s.active : s.passive } to='/news'>News</NavLink></li>
 				<li className={s.item}><NavLink className = { el => el.isActive ? s.active : s.passive } to='/music'>Music</NavLink></li>
 				<li className={s.item}><NavLink className = { el => el.isActive ? s.active : s.passive } to='/settings'>Settings</NavLink></li>
+				<li className={s.item}><NavLink className = { el => el.isActive ? s.active : s.passive } to='/users'>Users</NavLink></li>
 			</ul>
 			<FriendsContainer />
 		</div>

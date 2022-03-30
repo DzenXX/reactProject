@@ -1,5 +1,5 @@
 import s from './Messages.module.css'
-import User from './User/User'
+import UserChat from './User/UserChat'
 import Message from './Message/Message'
 import Input from "./Input/Input";
 
@@ -7,7 +7,7 @@ import Input from "./Input/Input";
 
 let Messages = (props) => {
 	let textElements = props.textData.map(t => (<Message store = {props.store} state = {t} />))
-	let userElements = props.userData.map(u => (<User name={u.name} id={u.id} />))
+	let userElements = props.userData.map(u => (<UserChat name={u.name} id={u.id} />))
 	debugger;
 	return (
 		<div className={s.wrapper}>
