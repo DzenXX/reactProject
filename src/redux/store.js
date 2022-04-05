@@ -19,7 +19,7 @@ let store = {
 		messagesPage: {
 			newMessageText: '',
 			userData: [
-				{name: 'Anyaaaa', id: 'ann'},
+				{name: 'Anya', id: 'ann'},
 				{name: 'Egor', id: 'egor'},
 				{name: 'Sasha', id: 'alexander'},
 				{name: 'Vlad', id: 'vladislav'},

@@ -4,7 +4,7 @@ const ADD_MESSAGE = 'ADD-MESSAGE'
 let initialState = {
     newMessageText: '',
     userData: [
-        {name: 'Anyaaaa', id: 'ann'},
+        {name: 'Anya', id: 'ann'},
         {name: 'Egor', id: 'egor'},
         {name: 'Sasha', id: 'alexander'},
         {name: 'Vlad', id: 'vladislav'},
@@ -20,19 +20,13 @@ let initialState = {
 const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_TEXT:
-            // let stateCopy = {...state}
-            // stateCopy.newMessageText = action.text;
             return {
                 ...state,
                 newMessageText: action.text,
             }
         case ADD_MESSAGE: {
-            // let stateCopy = {...state}
-            // stateCopy.textData = [...state.textData]
             let messageText = state.newMessageText;
             let newMessage = {yourMessage: true, id: 'ann', text: messageText};
-            // stateCopy.textData.push(newMessage)
-            // stateCopy.newMessageText = '';
             return {
                 ...state,
                 textData: [...state.textData, newMessage]
