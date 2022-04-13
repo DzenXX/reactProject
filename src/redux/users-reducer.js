@@ -34,12 +34,11 @@ const usersReducer = (state = initialState, action) => {
         }
         case SET_USERS: {
             debugger;
-            if (state.users.length === 0) {
                 return {
                     ...state,
-                    users: [...action.users]
+                    users: [...state.users, ...action.users]
+
                 }
-            }
         }
         default:
             return state
