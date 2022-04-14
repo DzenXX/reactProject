@@ -10,6 +10,8 @@
     display: flex;
 }
 .content__info {
+    padding: 5px;
+    position: relative;
     background-color: cornsilk;
     display: flex;
     width: 700px;
@@ -19,4 +21,11 @@
 
 .logo {
     width: 100px;
+}
+.content__name {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    color: aqua;
+    font-weight: bold;
 }
