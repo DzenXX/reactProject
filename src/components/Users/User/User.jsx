@@ -11,7 +11,7 @@ let User = (props) => {
     }
     debugger;
     return (
-        <div>
+        <div className={s.wrapper}>
             <div className={s.content}>
                 <img className={s.logo} src={ props.photos.small != null ? props.photos.small : "https://static.turbosquid.com/Preview/2015/05/19__15_58_37/SULLAFinal.jpg13871ffb-9e86-49b9-9211-4fa721216a9bLarge.jpg"} alt="#"/>
                 <div className={s.content__info}>
