@@ -9,7 +9,6 @@ let User = (props) => {
     let followUser = () => {
         props.follow(props.userId)
     }
-    debugger;
     return (
         <div className={s.wrapper}>
             <div className={s.content}>
