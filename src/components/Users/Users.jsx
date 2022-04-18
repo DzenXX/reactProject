@@ -20,15 +20,15 @@ let Users = (props) => {
                                 props.onPageChanged(p)
                             }
                             }>{` ${p} `}
-                        </span>
-                    })
+                        </span>})
                 }
             </div>
             {
                 props.users.map(u => (
-                    <User photos={u.photos} follow={props.follow} unfollow={props.unfollow}
+                    <User photos={u.photos} follow={props.follow}
+                          unfollow={props.unfollow}
                           followed={u.followed} name={u.name}
-                          userId={u.id} status={u.status}/>))
+                          id={u.id} status={u.status}/>))
             }
         </div>
     )

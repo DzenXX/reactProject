@@ -1,4 +1,5 @@
 import s from './User.module.css'
+import {NavLink} from "react-router-dom";
 
 let User = (props) => {
 
@@ -11,6 +12,7 @@ let User = (props) => {
     }
     return (
         <div className={s.wrapper}>
+            <NavLink to={'/profile/' + props.id}>
             <div className={s.content}>
                 <img className={s.logo} src={ props.photos.small != null ? props.photos.small : "https://static.turbosquid.com/Preview/2015/05/19__15_58_37/SULLAFinal.jpg13871ffb-9e86-49b9-9211-4fa721216a9bLarge.jpg"} alt="#"/>
                 <div className={s.content__info}>
@@ -23,10 +25,12 @@ let User = (props) => {
                     </div>
                 </div>
             </div>
+            </NavLink>
             <div className={s.button}>
                 {props.followed === true ? <button onClick={unfollowUser} className={s.button_follow}>Follow</button> :
                     <button onClick={followUser} className={s.button_unfollow}>Unfollow</button>}
             </div>
+            
         </div>
     )
 }
