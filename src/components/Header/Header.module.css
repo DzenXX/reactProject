@@ -24,4 +24,10 @@
 .item a:hover {
 	color: aqua;
 }
+.login {
+	margin-right: 10px;
+	color: cornflowerblue;
+	font-weight: 700;
+	font-size: 20px;
+}
 

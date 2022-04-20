@@ -20,7 +20,6 @@ class ProfileContainer extends React.Component {
     }
 
 
-
     debugger;
     render() {
         return (
@@ -29,7 +28,6 @@ class ProfileContainer extends React.Component {
     }
 
 }
-
 
 let mapStateToProps = (state) => {
     return {

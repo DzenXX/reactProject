@@ -9,12 +9,13 @@ import Settings from './components/Settings/Settings';
 import MessagesContainer from "./components/Messages/MessagesContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 let App = (props) => {
 	debugger;
 	return (
 		<div className='app'>
-			<Header />
+			<HeaderContainer />
 			<Navbar />
 			<div className='content'>
 				<Routes>

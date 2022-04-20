@@ -11,10 +11,14 @@ class UsersContainer extends React.Component {
     componentDidMount() {
         debugger;
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+            withCredentials: true,
+        }).then(response => {
+
             this.props.setUsers(response.data.items);
             this.props.setTotalUsersCount(response.data.totalCount)
             this.props.toggleIsFetching(false)
+
         })
     }
 
@@ -22,9 +26,12 @@ class UsersContainer extends React.Component {
     onPageChanged = (pageNumber) => {
         this.props.toggleIsFetching(true)
         this.props.setCurrentPage(pageNumber)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
-            this.props.setUsers(response.data.items)
-            this.props.toggleIsFetching(false)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
+            withCredentials: true,
+        }).then(response => {
+                this.props.setUsers(response.data.items)
+                this.props.toggleIsFetching(false)
+
         })
     }
     debugger;
@@ -45,13 +52,7 @@ class UsersContainer extends React.Component {
                      alt="#"/>
             </div>
             <div style={this.props.isFetching === false ? {display: 'block'} : {display: 'none'}}>
-                <Users users={this.props.users}
-                       follow={this.props.follow}
-                       unfollow={this.props.unfollow}
-                       totalUsersCount={this.props.totalUsersCount}
-                       pageSize={this.props.pageSize}
-                       currentPage={this.props.currentPage}
-                       onPageChanged={this.onPageChanged}/>
+                <Users {...this.props} onPageChanged={this.onPageChanged}/>
             </div>
         </div>
     }
@@ -68,28 +69,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         follow: (userId) => {
-//             dispatch(followActionCreator(userId))
-//         },
-//         unfollow: (userId) => {
-//             dispatch(unfollowActionCreator(userId))
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersActionCreator(users))
-//         },
-//         setCurrentPage: (currentPage) => {
-//             dispatch(setCurrentPageActionCreator(currentPage))
-//         },
-//         setTotalUsersCount: (totalUsersCount) => {
-//             dispatch(setTotalUsersCountActionCreator(totalUsersCount))
-//         },
-//         toggleIsFetching: (isFetching) => {
-//             dispatch(toggleIsFetchingActionCreator(isFetching))
-//         }
-//     }
-// }
 
 
 export default connect(mapStateToProps, {

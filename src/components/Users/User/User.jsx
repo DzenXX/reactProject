@@ -1,14 +1,31 @@
 import s from './User.module.css'
 import {NavLink} from "react-router-dom";
+import axios from "axios";
 
 let User = (props) => {
 
     let unfollowUser = () => {
-        props.unfollow(props.userId)
+        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,{
+            withCredentials: true,
+            headers: {
+                'API-KEY': 'c623e0d5-b645-4a5f-a99f-58bbc2af8303'
+            },
+        }).then(response => {
+            if (response.data.resultCode === 0)
+                props.unfollow(props.id)
+        })
         debugger;
     }
     let followUser = () => {
-        props.follow(props.userId)
+        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, {}, {
+            withCredentials: true,
+            headers: {
+                'API-KEY': 'c623e0d5-b645-4a5f-a99f-58bbc2af8303'
+            },
+        }).then(response => {
+            if (response.data.resultCode === 0)
+                props.follow(props.id)
+        })
     }
     return (
         <div className={s.wrapper}>
