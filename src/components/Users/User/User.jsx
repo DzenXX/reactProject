@@ -1,30 +1,26 @@
 import s from './User.module.css'
 import {NavLink} from "react-router-dom";
-import axios from "axios";
+import {followUserAPI, unfollowUserAPI} from "../../../api/api";
 
 let User = (props) => {
-
+    debugger;
     let unfollowUser = () => {
-        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,{
-            withCredentials: true,
-            headers: {
-                'API-KEY': 'c623e0d5-b645-4a5f-a99f-58bbc2af8303'
-            },
-        }).then(response => {
-            if (response.data.resultCode === 0)
+        props.toggleFollowingInProgress(true, props.id)
+       unfollowUserAPI(props.id).then(data => {
+            if (data.resultCode === 0) {
                 props.unfollow(props.id)
+            }
+           props.toggleFollowingInProgress(false, props.id)
         })
         debugger;
     }
     let followUser = () => {
-        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, {}, {
-            withCredentials: true,
-            headers: {
-                'API-KEY': 'c623e0d5-b645-4a5f-a99f-58bbc2af8303'
-            },
-        }).then(response => {
-            if (response.data.resultCode === 0)
+        props.toggleFollowingInProgress(true, props.id)
+        followUserAPI(props.id).then(data => {
+            if (data.resultCode === 0) {
                 props.follow(props.id)
+            }
+            props.toggleFollowingInProgress(false, props.id)
         })
     }
     return (
@@ -44,8 +40,8 @@ let User = (props) => {
             </div>
             </NavLink>
             <div className={s.button}>
-                {props.followed === true ? <button onClick={unfollowUser} className={s.button_follow}>Follow</button> :
-                    <button onClick={followUser} className={s.button_unfollow}>Unfollow</button>}
+                {props.followed === true ? <button disabled={props.followingInProgress.some(id => id === props.id)} onClick={unfollowUser} className={s.button_follow}>Follow</button> :
+                    <button disabled={props.followingInProgress.some(id => id === props.id)} onClick={followUser} className={s.button_unfollow}>Unfollow</button>}
             </div>
             
         </div>

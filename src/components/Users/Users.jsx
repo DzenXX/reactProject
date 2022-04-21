@@ -23,8 +23,9 @@ let Users = (props) => {
             </div>
             {
                 props.users.map(u => (
-                    <User photos={u.photos} follow={props.follow}
+                    <User photos={u.photos} toggleFollowingInProgress={props.toggleFollowingInProgress} follow={props.follow}
                           unfollow={props.unfollow}
+                          followingInProgress={props.followingInProgress}
                           followed={u.followed} name={u.name}
                           id={u.id} status={u.status}/>))
             }
