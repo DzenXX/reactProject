@@ -3,26 +3,14 @@ import {NavLink} from "react-router-dom";
 import {followUserAPI, unfollowUserAPI} from "../../../api/api";
 
 let User = (props) => {
-    debugger;
-    let unfollowUser = () => {
-        props.toggleFollowingInProgress(true, props.id)
-       unfollowUserAPI(props.id).then(data => {
-            if (data.resultCode === 0) {
-                props.unfollow(props.id)
-            }
-           props.toggleFollowingInProgress(false, props.id)
-        })
-        debugger;
-    }
+
     let followUser = () => {
-        props.toggleFollowingInProgress(true, props.id)
-        followUserAPI(props.id).then(data => {
-            if (data.resultCode === 0) {
-                props.follow(props.id)
-            }
-            props.toggleFollowingInProgress(false, props.id)
-        })
+        props.follow(props.id)
     }
+    let unfollowUser = () => [
+        props.unfollow(props.id)
+    ]
+
     return (
         <div className={s.wrapper}>
             <NavLink to={'/profile/' + props.id}>
@@ -40,8 +28,8 @@ let User = (props) => {
             </div>
             </NavLink>
             <div className={s.button}>
-                {props.followed === true ? <button disabled={props.followingInProgress.some(id => id === props.id)} onClick={unfollowUser} className={s.button_follow}>Follow</button> :
-                    <button disabled={props.followingInProgress.some(id => id === props.id)} onClick={followUser} className={s.button_unfollow}>Unfollow</button>}
+                {props.followed === true ? <button disabled={props.followingInProgress.some(id => id === props.id)} onClick={ unfollowUser } className={s.button_follow}>Follow</button> :
+                    <button disabled={props.followingInProgress.some(id => id === props.id)} onClick={ followUser } className={s.button_unfollow}>Unfollow</button>}
             </div>
             
         </div>

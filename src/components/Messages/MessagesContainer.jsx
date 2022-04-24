@@ -1,33 +1,11 @@
 import Messages from "./Messages";
 import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/messages-reducer";
-// import StoreContext from "../../StoreContext";
 import {connect} from "react-redux";
+import {Navigate} from "react-router-dom";
+import React from "react";
+import {withAuthRedirect} from "../../hoc/AuthRedirect";
 
-// let MessagesContainerr = () => {
-//
-//     debugger;
-//     return (
-//         <StoreContext.Consumer>
-//             {
-//                 (store) => {
-//
-//                     let textData = store.getState().messagesPage.textData
-//                     let userData = store.getState().messagesPage.userData
-//                     let newMessageText = store.getState().messagesPage.newMessageText
-//                     let OnMessageChange = (newText) => {
-//                         store.dispatch(updateNewMessageTextActionCreator(newText));
-//                     }
-//                     let AddMessage = () => {
-//                         store.dispatch(addMessageActionCreator())
-//                     }
-//                     return <Messages newMessageText={newMessageText} addMessage={AddMessage}
-//                                      updateNewMessageText={OnMessageChange}
-//                                      textData={textData} userData={userData}/>
-//                 }
-//             }
-//         </StoreContext.Consumer>
-//     )
-// }
+
 
 let mapStateToProps = (state) => {
     return {
@@ -48,6 +26,16 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-let MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages)
+// let AuthRedirectComponent = (props) => {
+//     debugger;
+//     if (!props.isAuth) {
+//         return <Navigate to='/login' />
+//     }
+//     return <Messages {...props} />
+// }
+
+
+
+let MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(withAuthRedirect(Messages))
 
 export default MessagesContainer
