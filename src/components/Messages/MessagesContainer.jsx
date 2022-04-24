@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {Navigate} from "react-router-dom";
 import React from "react";
 import {withAuthRedirect} from "../../hoc/AuthRedirect";
+import {compose} from "redux";
 
 
 
@@ -36,6 +37,7 @@ let mapDispatchToProps = (dispatch) => {
 
 
 
-let MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(withAuthRedirect(Messages))
-
-export default MessagesContainer
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect,
+)(Messages)
