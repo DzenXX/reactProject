@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getProfile, setUserProfile} from "../../redux/profile-reducer";
+import {getProfile, getStatus, setStatus, setUserProfile, updateStatus} from "../../redux/profile-reducer";
 import {Navigate, Redirect, useLocation} from "react-router-dom";
 import {useParams} from "react-router-dom";
 import {useNavigate} from "react-router-dom"
@@ -15,10 +15,10 @@ class ProfileContainer extends React.Component {
         debugger;
         let userId = this.props.router.params.userId ;
         if (!userId) {
-            userId = 2;
+            userId = 23545;
         }
         this.props.getProfile(userId)
-
+        this.props.getStatus(userId)
     }
 
 
@@ -28,7 +28,7 @@ class ProfileContainer extends React.Component {
         //     return <Navigate to="/login"/>
         // }
         return (
-            <Profile {...this.props} />
+            <Profile {...this.props} status={this.props.status} updateStatus={this.props.updateStatus} />
         )
     }
 
@@ -36,7 +36,8 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        profile: state.profilePage.profile
+        profile: state.profilePage.profile,
+        status: state.profilePage.status
     }
 }
 
@@ -55,23 +56,9 @@ function withRouter(Component) {
     return ComponentWithRouterProp;
 }
 
-// let AuthRedirectComponent = (props) => {
-//     debugger;
-//     if (!props.isAuth) {
-//         return <Navigate to='/login' />
-//     }
-//     return <ProfileContainer {...props} />
-// }
-
-// const withAuthRedirect1 = (Component) => {
-//             if (!this.props.isAuth) return <Navigate to='/login'/>
-//             return <Component {...this.props} />
-//     }
-
-// export default connect(mapStateToProps, {setUserProfile, getProfile})(withRouter(withAuthRedirect(ProfileContainer)))
 
 export default compose(
-    connect(mapStateToProps, {getProfile}),
+    connect(mapStateToProps, {getProfile, getStatus, setStatus, updateStatus}),
     withRouter,
     withAuthRedirect,
 )(ProfileContainer)
