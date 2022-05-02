@@ -8,7 +8,6 @@ const SET_STATUS = 'SET-USER-STATUS'
 let initialState = {
     profile: null,
     status: '',
-    newPostText: '',
     postData: [
         {
             id: '1',
@@ -29,8 +28,7 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST: {
             return {
                 ...state,
-                postData: [...state.postData, {id: '5', count: '0', text: state.newPostText}],
-                newPostText: '',
+                postData: [...state.postData, {id: '5', count: '0', text: action.newPostText}],
             }
         }
         case UPDATE_NEW_POST_TEXT: {
@@ -56,8 +54,8 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (newText) => ({type: UPDATE_NEW_POST_TEXT, text: newText})
+export const addPost = (newPostText) => ({type: ADD_POST, newPostText})
+export const updateNewPostText = (newText) => ({type: UPDATE_NEW_POST_TEXT, text: newText})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const setStatus = (status) => ({type: SET_STATUS, status})
 export default profileReducer

@@ -1,0 +1,22 @@
+.formControl {
+    border: 2px solid darksalmon;
+    display: inline-block;
+}
+
+
+.formControl.error {
+    border: 2px solid red;
+    position: relative;
+    height: auto;
+}
+
+.errorText {
+    margin-left: 5px;
+    text-align: left;
+    width: 200px;
+    color: red;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    font-weight: 600;
+}

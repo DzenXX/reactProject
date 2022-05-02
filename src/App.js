@@ -13,7 +13,6 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 
 let App = (props) => {
-	debugger;
 	return (
 		<div className='app'>
 			<HeaderContainer />

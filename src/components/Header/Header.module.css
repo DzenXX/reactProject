@@ -3,6 +3,19 @@
 	margin-left: 15px;
 }
 
+.logo {
+	position: relative;
+}
+
+.logo__title {
+	width: 200px;
+	position: absolute;
+	top: 50%;
+	left: 100px;
+	transform: translate(0, -50%);
+	font-weight: bold;
+}
+
 .header {
 	align-items: center;
 	grid-area: header;

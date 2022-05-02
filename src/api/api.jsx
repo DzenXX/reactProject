@@ -31,6 +31,7 @@ export const authMeAPI = () => {
         .then(response => response.data)
 }
 
+
 export const getProfileAPI = (userId) => {
     return instance.get(`profile/${userId}`)
         .then(response => response.data)
@@ -51,9 +52,29 @@ export const profileAPI = {
     }
 }
 
-export const updateStatus = (status) => {
-    debugger;
-    return instance.put(`profile/status`, {
-        status: status
-    })
+export const authAPI = {
+    getCaptchaAPI: () => {
+        debugger;
+        return instance.get('security/get-captcha-url')
+            .then(res => res.data.url)
+    },
+    authUserAPI: (email, password, rememberMe, captcha) => {
+        return instance.post('/auth/login', {
+            email: email,
+            password: password,
+            rememberMe: rememberMe,
+            captcha: captcha,
+        }).then(response => {
+            debugger;
+            return response.data
+        })
+    },
+    getOutUserAPI: (email, password, rememberMe, captcha) => {
+        return instance.post('/auth/login', {
+            email: email,
+            password: password,
+            rememberMe: rememberMe,
+            captcha: captcha,
+        })
+    }
 }

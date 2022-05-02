@@ -3,7 +3,6 @@ import s from './Navbar.module.css'
 import FriendsContainer from "./Friends/Friend/FriendsContainer";
 
 let Navbar = (props) => {
-	debugger;
 	return (	
 		<div className={s.navbar}>
 			<ul className={s.list}>
