@@ -9,7 +9,10 @@ let Header = (props) => {
 			</div>
 			<div className={s.menu}>
 				<ul className={s.list}>
-					{ props.isAuth === true ? <li className={s.login}>{props.login}</li> : <> <li className={s.item}><NavLink to='/login'>Sign in</NavLink></li> <li className={s.item}><a href="#">Sign up</a></li> </>  }
+					{ props.isAuth === true
+						? <><li className={s.login}>{props.login}</li> <li className={s.login}><button className={s.button} onClick={props.logOut}>Log Out</button></li></>
+						: <><li className={s.item}><NavLink to='/login'>Sign in</NavLink></li> <li className={s.item}><a href="#">Sign up</a></li></>
+					}
 				</ul>
 			</div>
 		</div>

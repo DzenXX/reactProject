@@ -69,12 +69,7 @@ export const authAPI = {
             return response.data
         })
     },
-    getOutUserAPI: (email, password, rememberMe, captcha) => {
-        return instance.post('/auth/login', {
-            email: email,
-            password: password,
-            rememberMe: rememberMe,
-            captcha: captcha,
-        })
+    logOutUserAPI: () => {
+        return instance.delete('/auth/login').then(response => response.data)
     }
 }

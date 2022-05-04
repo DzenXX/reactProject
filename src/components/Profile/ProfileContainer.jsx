@@ -11,11 +11,12 @@ import {compose} from "redux";
 
 class ProfileContainer extends React.Component {
 
+
     componentDidMount() {
         debugger;
         let userId = this.props.router.params.userId ;
-        if (!userId) {
-            userId = 23545;
+        if (!userId && this.props.isAuth) {
+            userId = this.props.myId;
         }
         this.props.getProfile(userId)
         this.props.getStatus(userId)
@@ -24,12 +25,10 @@ class ProfileContainer extends React.Component {
 
     debugger;
     render() {
-        // if (!this.props.isAuth) {
-        //     return <Navigate to="/login"/>
-        // }
-        return (
-            <Profile {...this.props} status={this.props.status} updateStatus={this.props.updateStatus} />
-        )
+            return (
+                <Profile {...this.props} status={this.props.status} updateStatus={this.props.updateStatus} />
+            )
+
     }
 
 }
@@ -37,7 +36,9 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         profile: state.profilePage.profile,
-        status: state.profilePage.status
+        status: state.profilePage.status,
+        isAuth: state.auth.isAuth,
+        myId: state.auth.userId
     }
 }
 

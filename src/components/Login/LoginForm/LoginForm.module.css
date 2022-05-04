@@ -9,3 +9,13 @@
     box-sizing: border-box;
     margin-bottom: 7px;
 }
+
+.formError {
+    color: red;
+    border: solid 2px red;
+    display: inline-block;
+    padding: 2px;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 5px 0;
+}

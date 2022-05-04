@@ -6,6 +6,7 @@ import React from "react";
 import s from './LoginForm.module.css'
 import {maxLength, required} from "../../../utilits/validators/validators";
 import ComponentForField from "../../../hoc/ComponentForField";
+import {Navigate} from "react-router-dom";
 
 
 let maxLength50 = maxLength(50)
@@ -17,9 +18,14 @@ class LoginForm extends React.Component {
         this.props.getCaptchaURL();
     }
 
+
     render() {
-        return (
+            if (this.props.isAuth === true) {
+                return <Navigate to='/profile'/>
+            }
+            return (
             <form onSubmit={this.props.handleSubmit}>
+                {this.props.error && <div className={s.formError}>{this.props.error}</div> }
                 <div className={s.wrapper}>
                     <Field validate={[required, maxLength50]} component={Input} name={'email'} placeholder={'Email'} className={s.input}/>
                 </div>
@@ -45,7 +51,8 @@ class LoginForm extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        captchaURL: state.auth.captchaURL
+        captchaURL: state.auth.captchaURL,
+        isAuth: state.auth.isAuth
     }
 }
 
