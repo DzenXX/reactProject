@@ -12,7 +12,7 @@ let initialState = {
     users: [],
     pageSize: 30,
     totalUsersCount: 20,
-    currentPage: 2,
+    currentPage: 1,
     isFetching: false,
     followingInProgress: []
 }
@@ -94,7 +94,7 @@ export const toggleFollowingInProgress = (isFetching, userId) => ({type: TOGGLE_
 export default usersReducer
 
 
-export const getUsers = (currentPage, pageSize) => {
+export const getAllUsers = (currentPage, pageSize) => {
     return (dispatch) => {
         debugger;
         dispatch(toggleIsFetching(true))

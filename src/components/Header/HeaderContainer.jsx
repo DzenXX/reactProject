@@ -8,9 +8,7 @@ import {authAPI} from "../../api/api";
 
 class HeaderContainer extends React.Component {
 
-    componentDidMount() {
-        this.props.authMe()
-    }
+
 
     render() {
         return <Header {...this.props} />

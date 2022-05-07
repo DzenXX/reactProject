@@ -1,11 +1,8 @@
-import {Field, reduxForm} from "redux-form";
-import input from "../Messages/InputContainer/Input/Input";
+import {reduxForm} from "redux-form";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {authUser, getCaptchaURL} from "../../redux/auth-reducer";
-import {authAPI} from "../../api/api";
 import LoginForm from "./LoginForm/LoginForm";
-import {Navigate} from "react-router-dom";
 
 
 let Login = (props) => {

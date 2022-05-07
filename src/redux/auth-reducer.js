@@ -39,7 +39,7 @@ export default authReducer
 
 export const authMe = () => {
     return (dispatch) => {
-        authMeAPI().then(data => {
+        return authMeAPI().then(data => {
             if (data.resultCode === 0) {
                 let {login, id, email} = data.data
                 dispatch(setAuthUserData(login, id, email, true))
