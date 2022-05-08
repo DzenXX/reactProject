@@ -3,8 +3,10 @@ import {stopSubmit} from "redux-form";
 
 const SET_AUTH_USER_DATA = 'SET-AUTH-USER-DATA'
 const SET_CAPTCHA_URL = 'SET-CAPTCHA-URL'
+const FAKE = 'FAKE'
 
 let initialState = {
+    fakeCount: 0,
     login: null,
     userId: null,
     email: null,
@@ -14,6 +16,12 @@ let initialState = {
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
+        case FAKE: {
+            return {
+                ...state,
+                fakeCount: state.fakeCount + 1
+            }
+        }
         case SET_AUTH_USER_DATA: {
             debugger;
             return {
@@ -33,6 +41,7 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
+export const fake = () => ({type: FAKE})
 export const setAuthUserData = (login, userId, email, isAuth) => ({type: SET_AUTH_USER_DATA, data: {login, userId, email, isAuth}})
 export const setCaptchaURL = (url) => ({type: SET_CAPTCHA_URL, url: url})
 export default authReducer
